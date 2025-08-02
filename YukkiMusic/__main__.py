@@ -1,29 +1,3 @@
-#
-# Copyright (C) 2021-2022 by TeamYukki@Github, < https://github.com/TeamYukki >.
-#
-# This file is part of < https://github.com/TeamYukki/YukkiMusicBot > project,
-# and is released under the "GNU v3.0 License Agreement".
-# Please see < https://github.com/TeamYukki/YukkiMusicBot/blob/master/LICENSE >
-#
-# All rights reserved.
-
-import asyncio
-import importlib
-import sys
-
-from pyrogram import idle
-from pytgcalls.exceptions import NoActiveGroupCall
-
-import config
-from config import BANNED_USERS
-from YukkiMusic import LOGGER, app, userbot
-from YukkiMusic.core.call import Yukki
-from YukkiMusic.plugins import ALL_MODULES
-from YukkiMusic.utils.database import get_banned_users, get_gbanned
-
-loop = asyncio.get_event_loop()
-
-
 async def init():
     if (
         not config.STRING1
@@ -74,8 +48,3 @@ async def init():
     await Yukki.decorators()
     LOGGER("YukkiMusic").info("Yukki Music Bot Started Successfully")
     await idle()
-
-
-if __name__ == "__main__":
-    loop.run_until_complete(init())
-    LOGGER("YukkiMusic").info("Stopping Yukki Music Bot! GoodBye")
